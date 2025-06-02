@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\WEB\Admin\DashboardController;
+use App\Http\Controllers\WEB\Auth\Logincontroller;
 use App\Http\Controllers\WEB\Home\AboutController;
 use App\Http\Controllers\WEB\Home\BlogController;
 use App\Http\Controllers\WEB\Home\ContactController;
@@ -23,3 +25,10 @@ Route::get('/projects', [ProjectsController::class, 'index'])->name('projects');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+
+Route::get('/login', [Logincontroller::class, 'index'])->name('login');
+Route::post('/login', [Logincontroller::class, 'store'])->name('login.store');
+
+Route::middleware('auth')->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+});

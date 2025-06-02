@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://kit.fontawesome.com/f74deb4653.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
-    <title>Bimaryan.my.id</title>
+    <title>bimaryan.my.id</title>
 </head>
 
 <body class="bg-gray-100" x-data="{ isMobile: window.innerWidth < 768 }" x-init="window.addEventListener('resize', () => { isMobile = window.innerWidth < 768; })" x-cloak>
