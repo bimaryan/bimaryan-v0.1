@@ -1,7 +1,7 @@
 @extends('pages.admin.index')
 
 @section('content')
-    <div class="max-w-screen-xl mx-auto p-6 pt-35">
+    <div class="max-w-screen-xl mx-auto p-6 mt-14 pt-10">
         <div class="bg-white rounded-lg shadow-lg p-6 space-y-6">
             <h1 class="text-2xl font-semibold text-gray-800">Dashboard Admin</h1>
             <p class="text-gray-600">Selamat datang di halaman admin. Berikut informasi sistem saat ini:</p>
