@@ -9,12 +9,17 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <!-- Storage -->
                 <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg shadow">
-                    <h2 class="text-lg font-semibold text-blue-800">Storage</h2>
-                    <p class="text-sm text-gray-700">
-                        Free: {{ number_format(disk_free_space('/') / 1024 / 1024 / 1024, 2) }} GB<br>
-                        Total: {{ number_format(disk_total_space('/') / 1024 / 1024 / 1024, 2) }} GB
-                    </p>
-                </div>
+    <h2 class="text-lg font-semibold text-blue-800">Storage (Storage Folder)</h2>
+    @php
+        $storagePath = storage_path();
+        $free = disk_free_space($storagePath);
+        $total = disk_total_space($storagePath);
+    @endphp
+    <p class="text-sm text-gray-700">
+        Free: {{ number_format($free / 1024 / 1024 / 1024, 2) }} GB<br>
+        Total: {{ number_format($total / 1024 / 1024 / 1024, 2) }} GB
+    </p>
+</div>
 
                 <!-- RAM -->
                 <div class="bg-green-50 border border-green-200 p-4 rounded-lg shadow">
