@@ -21,34 +21,16 @@
     </p>
 </div>
 
-                <!-- RAM -->
-                <div class="bg-green-50 border border-green-200 p-4 rounded-lg shadow">
-                    <h2 class="text-lg font-semibold text-green-800">RAM</h2>
-                    @php
-                        $memInfo = file_get_contents("/proc/meminfo");
-                        preg_match("/MemTotal:\s+(\d+)/", $memInfo, $matchesTotal);
-                        preg_match("/MemAvailable:\s+(\d+)/", $memInfo, $matchesFree);
-                        $totalMem = isset($matchesTotal[1]) ? $matchesTotal[1] / 1024 : 0;
-                        $freeMem = isset($matchesFree[1]) ? $matchesFree[1] / 1024 : 0;
-                    @endphp
-                    <p class="text-sm text-gray-700">
-                        Free: {{ number_format($freeMem, 2) }} MB<br>
-                        Total: {{ number_format($totalMem, 2) }} MB
-                    </p>
-                </div>
-
-                <!-- CPU Load -->
-                <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg shadow">
-                    <h2 class="text-lg font-semibold text-yellow-800">CPU Load</h2>
-                    @php
-                        $load = sys_getloadavg();
-                    @endphp
-                    <p class="text-sm text-gray-700">
-                        1 min: {{ $load[0] }}<br>
-                        5 min: {{ $load[1] }}<br>
-                        15 min: {{ $load[2] }}
-                    </p>
-                </div>
+                <!-- CPU & RAM -->
+<div class="bg-green-50 border border-green-200 p-4 rounded-lg shadow">
+    <h2 class="text-lg font-semibold text-green-800">Informasi Server</h2>
+    <p class="text-sm text-gray-700">
+        PHP Version: {{ phpversion() }} <br>
+        Server OS: {{ php_uname() }} <br>
+        Memory Limit (PHP): {{ ini_get('memory_limit') }} <br>
+        Max Execution Time: {{ ini_get('max_execution_time') }} detik
+    </p>
+</div>
             </div>
         </div>
     </div>
